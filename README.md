@@ -1,7 +1,6 @@
 # Hooking Windows 10 Calculator 64-bit
 
-[![CI/CD](https://github.com/Siss3l/Calculaception/workflows/Pylint/badge.svg?branch=main)](https://github.com/Siss3l/
-aception0/actions/workflows/pylint.yml)
+[![CI/CD](https://github.com/Siss3l/Calculaception/workflows/Pylint/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/pylint.yml)
 
 ## Installation
 
