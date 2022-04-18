@@ -1,0 +1,3 @@
+Add-AppxPackage -Path C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2020\Microsoft.UI.Xaml.2.4_2.42007.9001.0_x64__8wekyb3d8bbwe.Appx | Out-Null
+Add-AppxPackage -Path C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2020\Microsoft.VCLibs.140.00_14.0.30704.0_x64__8wekyb3d8bbwe.Appx | Out-Null
+Add-AppxPackage -Path C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2020\Microsoft.WindowsCalculator_2020.2103.8.0_neutral___8wekyb3d8bbwe.AppxBundle | Out-Null
