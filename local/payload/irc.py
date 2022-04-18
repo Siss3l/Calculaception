@@ -115,7 +115,7 @@ class Hooking:
         close()
 
     @staticmethod
-    def _on_message(message, data):
+    def _on_message(message: Union[dict, str], data: Union[dict, str]):
         try:
             if data is not None:
                 show(f"[bold red]{data}[/bold red]")
