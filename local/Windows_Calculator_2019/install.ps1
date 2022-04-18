@@ -1,0 +1,1 @@
+Add-AppxPackage -Path C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2019\Microsoft.WindowsCalculator_2019.603.2241.0_neutral___8wekyb3d8bbwe.AppxBundle | Out-Null
