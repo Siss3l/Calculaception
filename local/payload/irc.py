@@ -49,13 +49,7 @@ def checking() -> bool:
                     break  # This is not useful with "for-else".
         except (AccessDenied, NoSuchProcess, ZombieProcess):
             pass
-    _ex = pop(ex)
-    if _ex:
-        return _ex
-    _calc = pop(calc)
-    if _calc:
-        return _calc
-    return False
+    return bool(pop(ex))
 
 
 def clean():
@@ -68,7 +62,7 @@ def clean():
 
 def pop(value: Union[str, int]) -> bool:
     """
-    Try to run Calculator along different ways with a minute timeout.
+    Try to run Calculator with a minute timeout.
     .. note::
         There may be a false positive if notably OpenWith.exe (of returncode belonging to the N set)
         is also running or that Explorer.exe is launched without succeeding in finding Calculator.
