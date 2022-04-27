@@ -10,7 +10,7 @@
 
 **Python 3** needs the following latest packages to work:
 
--   [Frida](https://github.com/frida/frida)
+-   [Frida](https://github.com/frida/frida-python)
 -   [Loguru](https://github.com/Delgan/loguru)
 -   [Psutil](https://github.com/giampaolo/psutil)
 -   [PyYAML](https://github.com/yaml/pyyaml)
