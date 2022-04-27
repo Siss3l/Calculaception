@@ -8,7 +8,7 @@
 
 ## Requirement
 
-**Python 3** needs the following latest packages to work:
+**Python 3** needs the following packages to work:
 
 -   [Frida](https://github.com/frida/frida-python)
 -   [Loguru](https://github.com/Delgan/loguru)
