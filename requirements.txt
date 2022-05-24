@@ -2,4 +2,4 @@ frida~=15.1.17
 loguru~=0.6.0
 psutil~=5.9.1
 PyYAML~=6.0
-rich~=12.4.2
+rich~=12.4.4
