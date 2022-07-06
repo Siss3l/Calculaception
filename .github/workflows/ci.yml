@@ -18,12 +18,12 @@ jobs:
         python-version: 3.9
     - name: Generate Report
       run: |
-        pip install coverage pytest pytest-cov
+        python -m pip install coverage pytest pytest-cov
         coverage run -m unittest
     - name: Run tests and collect coverage
       run: |
         export PYTHONPATH=. pytest # $(git ls-files '*.py')
-        python -m pytest --cov-report xml --cov=. /home/runner/work/Calculaception/Calculaception/local/payload/irc.py
+        python -m pytest --cov-report xml ./local/payload/irc.py
     - name: Upload coverage reports to Codecov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
