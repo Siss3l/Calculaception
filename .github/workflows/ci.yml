@@ -4,9 +4,9 @@ on: [push, pull_request]
 
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
-      OS: ubuntu-latest
+      OS: windows-latest
       PYTHON: "3.9"
     steps:
     - uses: actions/checkout@v2
