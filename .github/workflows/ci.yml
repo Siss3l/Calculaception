@@ -20,5 +20,7 @@ jobs:
       run: |
         pip install coverage
         coverage run -m unittest
+    - name: Run tests and collect coverage
+      run: pytest --cov .
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v2
