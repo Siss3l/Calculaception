@@ -1,6 +1,7 @@
 # Hooking Windows 10 Calculator 64-bit
 
 [![CI/CD](https://github.com/Siss3l/Calculaception/workflows/Pylint/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/pylint.yml)
+[![CI/CD](https://github.com/Siss3l/Calculaception/workflows/PythonCI/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/ci.yml)
 
 ## Installation
 
@@ -18,7 +19,7 @@
 
 ## Usage
 
-Run the following command in order to be able to launch **Calculator** in **Calculator**:
+Run the following command in order to be able to start **Calculator** in **Calculator**:
 ```cmd
 python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
@@ -32,7 +33,7 @@ ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!A
 
 ## Configuration
 
-You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it on **Windows Sandbox**.
+You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox**.
 ```cmd
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
