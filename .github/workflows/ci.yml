@@ -21,9 +21,7 @@ jobs:
         pip install coverage frida loguru psutil pylint pytest pytest-cov PyYAML rich
         coverage run -m unittest
     - name: Run tests and collect coverage
-      run: |
-        export PYTHONPATH=. pytest
-        pytest --cov-report xml --cov=. ./local/payload/irc.py # $(git ls-files '*.py')
+      run: pytest --cov-report xml --cov=. ./local/payload/irc.py # $(git ls-files '*.py')
     - name: Upload coverage reports to Codecov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
