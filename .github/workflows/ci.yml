@@ -1,18 +1,29 @@
-name: Python CI
+name: PythonCI
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
-
+    env:
+      OS: ubuntu-latest
+      PYTHON: "3.10"
     steps:
-      - uses: actions/checkout@v2
-      - uses: szenius/set-timezone@v1.0
-        with:
-          timezoneLinux: "Europe/Paris"
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: target/site/jacoco/jacoco.xml
+    - uses: checkout@v2
+      with:
+        fetch-depth: "2"
+    - uses: szenius/set-timezone@v1.0
+      with:
+        timezoneLinux: "Europe/Paris"
+    - name: Setup Python
+      uses: actions/setup-python@master
+      with:
+        python-version: 3.9
+    - name: Generate Report
+      run: |
+        pip install coverage
+        coverage run -m unittest
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
