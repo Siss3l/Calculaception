@@ -20,6 +20,5 @@ jobs:
       run: |
         pip install coverage
         coverage run -m unittest
-        pytest --cov-report xml --cov=project tests/
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v2
