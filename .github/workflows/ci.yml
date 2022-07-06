@@ -9,23 +9,26 @@ jobs:
       OS: windows-latest
       PYTHON: "3.9"
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: "2"
     - name: Setup Python
-      uses: actions/setup-python@master
+      uses: actions/setup-python@v3
       with:
         python-version: 3.9
     - name: Generate Report
       run: |
         pip install coverage frida loguru psutil pylint pytest pytest-cov PyYAML rich
-        coverage run -m unittest
+        # coverage run -m unittest
     - name: Run tests and collect coverage
-      run: pytest --cov-report xml --cov=. ./local/payload/irc.py # $(git ls-files '*.py')
+      run: |
+        coverage run -m unittest ./local/payload/irc.py # test
+        # pytest --cov-report xml --cov=. ./local/payload/irc.py
+        # $(git ls-files '*.py')
     - name: Upload coverage reports to Codecov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
         chmod +x codecov
         ./codecov -t ${CODECOV_TOKEN}
     - name: Upload Coverage to Codecov
-      uses: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v3
