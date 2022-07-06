@@ -4,11 +4,12 @@
 
 [![CI/CD](https://github.com/Siss3l/Calculaception/workflows/Pylint/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/pylint.yml)
 [![CI/CD](https://github.com/Siss3l/Calculaception/workflows/PythonCI/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/ci.yml)
+
 </div>
 
 ## 🧩 Installation
 
-[Windows Calculator](./local/Windows_Calculator_2020/install.ps1) must be installed to work knowing that it is not by default on **Windows Sandbox**.
+[Windows Calculator](./local/Windows_Calculator_2020/install.ps1) must be installed to work, knowing that it is not by default on **Windows Sandbox**.
 
 ## ✨ Prerequisite
 
@@ -24,19 +25,18 @@
 
 Run the following command in order to be able to start **Calculator** in **Calculator**:
 ```cmd
-python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
+python .\local\payload\irc.py # python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
 
-There is the default relative path of `WindowsCalculator` editable.
-
-See the [part](./local/payload/irc.py#L27) here:
+There is a default relative path of `WindowsCalculator` editable.\
+See this [part](./local/payload/irc.py#L27) here:
 ```python
 ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
 ```
 
 ## ⚙ Configuration
 
-You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox**.
+You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox** system.
 ```cmd
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
