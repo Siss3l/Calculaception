@@ -22,10 +22,5 @@ jobs:
         pip install -r requirements.txt coverage pytest pytest-cov
     - name: Run tests and collect coverage
       run: coverage run -m unittest $(git ls-files '*.py') # pytest --cov-report xml --cov=. ./local/payload/irc.py
-    - name: Upload coverage reports to Codecov
-      run: |
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov -t ${CODECOV_TOKEN}
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v3
