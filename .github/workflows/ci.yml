@@ -23,7 +23,7 @@ jobs:
     - name: Run tests and collect coverage
       run: |
         export PYTHONPATH=. pytest
-        pytest --cov-report xml $(git ls-files '*.py')
+        pytest --cov-report xml --cov=. ./local/payload/irc.py # $(git ls-files '*.py')
     - name: Upload coverage reports to Codecov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
