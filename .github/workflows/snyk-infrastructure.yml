@@ -3,10 +3,9 @@ name: Snyk Infrastructure as Code
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # pull_request:
   schedule:
-    - cron: '34 2 * * 0'
+    - cron: "34 2 * * 0"
 
 permissions:
   contents: read
