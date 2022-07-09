@@ -1,4 +1,4 @@
-name: Snyk Infrastructure as Code
+name: Snyk
 
 on:
   push:
@@ -14,13 +14,17 @@ jobs:
     permissions:
       contents: read
       security-events: write
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Bypass path does not exist error
+        run: touch snyk.sarif
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         uses: snyk/actions/iac@14818c4695ecc4045f33c9cee9e795a788711ca4
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2 # with: sarif_file: snyk.sarif
+        uses: github/codeql-action/upload-sarif@v2
+        with: 
+          sarif_file: snyk.sarif
