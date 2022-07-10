@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Testing1
-        if: ${{env.KEY != "1"}}
+        if: ${{env.KEY != '1'}}
         run: |
           echo ${#KEY};
           echo ${#NEW};
@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Testing
-        if: ${{env.KEY != "0"}}
+        if: ${{env.KEY != '0'}}
         run: |
           echo ${#KEY};
           echo ${#NEW};
