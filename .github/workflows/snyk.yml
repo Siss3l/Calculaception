@@ -23,7 +23,7 @@ jobs:
           SNYK_API_TOKEN: ${{ env.SNYK_TOKEN }} # not secrets
       - name: Testing
         run: | 
-          echo ${#SNYK_API_TOKEN};
+          echo ${#env.SNYK_API_TOKEN};
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
