@@ -1,29 +1,28 @@
 name: Snyk
-
 on:
   push:
     branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   schedule:
-    - cron: '41 3 * * 6'
-
+    - cron: "41 3 * * 6"
 permissions:
   contents: read
-
 jobs:
   snyk:
     permissions:
       contents: read
       security-events: write
     runs-on: ubuntu-latest
+    env:
+      SNYK_API_TOKEN: ${{ env.SNYK_TOKEN }} # not secrets
     steps:
       - uses: actions/checkout@v3
-        env:
-          SNYK_API_TOKEN: ${{ env.SNYK_TOKEN }} # not secrets
       - name: Testing
-        run: | 
-          echo ${#env.SNYK_API_TOKEN};
+        run: |
+          echo "$GITHUB_CONTEXT";
+          echo ${#SNYK_API_TOKEN};
+          echo "SNYK_API_TOKEN=${#SNYK_API_TOKEN}";
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
