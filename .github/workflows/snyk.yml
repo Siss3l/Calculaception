@@ -6,8 +6,8 @@ on:
   schedule:
     - cron: "34 2 * * 0"
 
-permissions:
-  contents: read
+# permissions:
+#  contents: read
 
 jobs:
   snyk:
@@ -22,8 +22,7 @@ jobs:
       - name: Install Snyk & Authenticate
         run: |
           sudo npm install -g snyk
-          echo ${SNYK_TOKEN:0:4}
-          # snyk auth ${SNYK_TOKEN}
+          snyk auth ${SNYK_TOKEN}
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         uses: snyk/actions/iac@14818c4695ecc4045f33c9cee9e795a788711ca4
