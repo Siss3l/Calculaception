@@ -14,19 +14,19 @@ jobs:
       contents: read
       security-events: write
     runs-on: ubuntu-latest
+    environment: SNYK_TOKEN
     steps:
       - uses: actions/checkout@v3
         env:
-          SNYK_API_TOKEN: ${{ env.SNYK_TOKEN }} # not secrets
+          SNYK_API_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Testing
         run: |
-          echo "$GITHUB_CONTEXT";
           echo ${#SNYK_API_TOKEN};
-          echo "SNYK_API_TOKEN=${#SNYK_API_TOKEN}";
+          echo ${#SNYK_TOKEN};
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
-          snyk auth ${SNYK_TOKEN}
+          snyk auth ${SNYK_API_TOKEN}
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         uses: snyk/actions/iac@14818c4695ecc4045f33c9cee9e795a788711ca4
