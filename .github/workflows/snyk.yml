@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: SNYK_API_TOKEN
     steps:
-      - env:
+      - uses: actions/checkout@v3
+        env:
           KEY: ${{ secrets.SNYK_TOKEN }};
           NEW: ${{ env.SNYK_TOKEN }};
-      - uses: actions/checkout@v3
       - name: Testing
         run: |
           echo ${#KEY};
