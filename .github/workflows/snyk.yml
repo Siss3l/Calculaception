@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_API_TOKEN }} # SNYK_TOKEN
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
