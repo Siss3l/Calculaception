@@ -25,7 +25,7 @@ jobs:
         run: | 
           echo ${#SNYK_TOKEN};
           echo ${#SNYK_API_TOKEN};
-          echo ${#secrets.SNYK_API_TOKEN};
+          echo ${{#secrets.SNYK_API_TOKEN}};
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
