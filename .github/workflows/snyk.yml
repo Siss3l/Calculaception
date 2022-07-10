@@ -17,10 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Install Snyk & Authenticate
         run: |
-          sudo npm install -g snyk
-          snyk auth ${{ secrets.SNYK_TOKEN }}
+          sudo yarn global add snyk
+          snyk auth $SNYK_TOKEN
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         uses: snyk/actions/iac@14818c4695ecc4045f33c9cee9e795a788711ca4
