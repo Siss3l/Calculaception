@@ -9,18 +9,28 @@ on:
 permissions:
   contents: read
 jobs:
+  build:
+    environment: SNYK_API_TOKEN
+    env:
+      KEY: ${{ secrets.SNYK_TOKEN }};
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing1
+        if: ${{env.KEY != "1"}}
+        run: |
+          echo ${#KEY};
+          echo ${#NEW};
+          echo ${#SNYK_API_TOKEN};
+          echo ${#SNYK_TOKEN};
   snyk:
     permissions:
       contents: read
       security-events: write
     runs-on: ubuntu-latest
-    environment: SNYK_API_TOKEN
     steps:
       - uses: actions/checkout@v3
-        env:
-          KEY: ${{ secrets.SNYK_TOKEN }};
-          NEW: ${{ env.SNYK_TOKEN }};
       - name: Testing
+        if: ${{env.KEY != "0"}}
         run: |
           echo ${#KEY};
           echo ${#NEW};
