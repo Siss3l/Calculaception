@@ -14,14 +14,6 @@ jobs:
     env:
       KEY: ${{ secrets.SNYK_TOKEN }};
     runs-on: ubuntu-latest
-    steps:
-      - name: Testing1
-        if: ${{env.KEY != '1'}}
-        run: |
-          echo ${#KEY};
-          echo ${#NEW};
-          echo ${#SNYK_API_TOKEN};
-          echo ${#SNYK_TOKEN};
   snyk:
     permissions:
       contents: read
@@ -30,7 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Testing
-        if: ${{env.KEY != '0'}}
         run: |
           echo ${#KEY};
           echo ${#NEW};
@@ -39,7 +30,7 @@ jobs:
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
-          snyk auth ${SNYK_API_TOKEN}
+          snyk auth ${KEY}
       - name: Run Snyk to check configuration files for security issues
         continue-on-error: true
         uses: snyk/actions/iac@14818c4695ecc4045f33c9cee9e795a788711ca4
