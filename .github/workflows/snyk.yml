@@ -9,22 +9,19 @@ on:
 permissions:
   contents: read
 jobs:
-  build:
-    environment: SNYK_API_TOKEN
-    env:
-      KEY: ${{ secrets.SNYK_TOKEN }};
-    runs-on: ubuntu-latest
   snyk:
     permissions:
       contents: read
       security-events: write
     runs-on: ubuntu-latest
+    environment: SNYK_API_TOKEN
+    env:
+      KEY: ${{ secrets.SNYK_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Testing
         run: |
           echo ${#KEY};
-          echo ${#NEW};
           echo ${#SNYK_API_TOKEN};
           echo ${#SNYK_TOKEN};
       - name: Install Snyk & Authenticate
