@@ -19,11 +19,6 @@ jobs:
       KEY: ${{ secrets.SNYK_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - name: Testing
-        run: |
-          echo ${#KEY};
-          echo ${#SNYK_API_TOKEN};
-          echo ${#SNYK_TOKEN};
       - name: Install Snyk & Authenticate
         run: |
           sudo yarn global add snyk
