@@ -4,6 +4,7 @@
 
 [![CI/CD](https://github.com/Siss3l/Calculaception/workflows/Pylint/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/pylint.yml)
 [![CI/CD](https://github.com/Siss3l/Calculaception/workflows/PythonCI/badge.svg?branch=main)](https://github.com/Siss3l/Calculaception/actions/workflows/ci.yml)
+[![Known_Vulnerabilities](https://snyk.io/test/github/Siss3l/Calculaception/badge.svg?branch=main)](https://snyk.io/test/github/Siss3l/Calculaception)
 
 </div>
 
