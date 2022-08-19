@@ -21,7 +21,7 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 ## ✨ Prerequisite
 
-**Python 3** needs the following packages to work:
+**Python 3** needs the following packages:
 
 -   [Frida](https://github.com/frida/frida-python)
 -   [Loguru](https://github.com/Delgan/loguru)
