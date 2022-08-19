@@ -17,7 +17,7 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 ## 🧩 Installation
 
-[Windows Calculator](./local/Windows_Calculator_2020/install.ps1) must be installed to work, knowing that it is not by default on **Windows Sandbox**.
+[**Windows Calculator**](./local/Windows_Calculator_2020/install.ps1) must be installed to work, knowing that it is not by default on [**Windows Sandbox**](https://github.com/microsoft/Windows-Sandbox-Utilities).
 
 ## ✨ Prerequisite
 
@@ -31,9 +31,10 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 ## 🚀 Usage
 
-Run the following command in order to be able to start **Calculator** in **Calculator**:
+Run one of the following commands in order to be able to start any **Calculator** in **Calculator**:
 ```cmd
-python .\local\payload\irc.py # python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
+python .\local\payload\irc.py
+python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
 
 There is a default relative path of `WindowsCalculator` editable.\
@@ -44,11 +45,15 @@ ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!A
 
 ## ⚙ Configuration
 
-You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox** system.
+You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox** environment.
 ```cmd
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
 
 ![Version](https://i.imgur.com/DjFwYZn.png)
 
-[Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) or a Virtual Machine (on **QEMU**, **VirtualBox**, **VMware**, etc.) can be used as a test environment inspected with `VirusTotal`.
+There are several alternatives to run a **Calculator** application:
+-   [Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) with prior installation of **Calculator**
+-   a Virtual Machine ([QEMU](https://github.com/qemu/qemu), [VirtualBox](https://github.com/mirror/vbox), [VMware](https://github.com/vmware/open-vm-tools), etc.) can be used as a test environment, including [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) possibly inspected with [VirusTotal](https://github.com/VirusTotal/vt-cli)
+-   Usage of [Wine](https://github.com/wine-mirror/wine) allowing to launch **Windows** applications (without adding [HyperV](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v), [FlareVM](https://github.com/mandiant/flare-vm) or [HiddenVM](https://github.com/aforensics/HiddenVM))
+-   [Uno Platform](https://github.com/unoplatform/calculator) should also be adapted to the needs
