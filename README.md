@@ -23,7 +23,7 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 **Python 3** needs the following packages:
 
--   [Frida](https://github.com/frida/frida-python)
+-   [Frida](https://github.com/frida/frida-python) (required)
 -   [Loguru](https://github.com/Delgan/loguru)
 -   [Psutil](https://github.com/giampaolo/psutil)
 -   [PyYAML](https://github.com/yaml/pyyaml)
@@ -54,6 +54,6 @@ You have to change the username **test** in the sandbox [configuration file](./l
 
 There are several alternatives to run a **Calculator** application:
 -   [Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) with prior installation of **Calculator**
--   a Virtual Machine ([QEMU](https://github.com/qemu/qemu), [VirtualBox](https://github.com/mirror/vbox), [VMware](https://github.com/vmware/open-vm-tools), etc.) can be used as a test environment, including [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) possibly inspected with [VirusTotal](https://github.com/VirusTotal/vt-cli)
+-   A Virtual Machine ([QEMU](https://github.com/qemu/qemu), [VirtualBox](https://github.com/mirror/vbox), [VMware](https://github.com/vmware/open-vm-tools), etc.) can be used as a test environment, including [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) possibly inspected with [VirusTotal](https://github.com/VirusTotal/vt-cli)
 -   Usage of [Wine](https://github.com/wine-mirror/wine) allowing to launch **Windows** applications (without adding [HyperV](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v), [FlareVM](https://github.com/mandiant/flare-vm) or [HiddenVM](https://github.com/aforensics/HiddenVM))
 -   [Uno Platform](https://github.com/unoplatform/calculator) should also be adapted to the needs
