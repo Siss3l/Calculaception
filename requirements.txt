@@ -1,4 +1,4 @@
-frida~=15.1.27
+frida~=15.2.2
 loguru~=0.6.0
 psutil~=5.9.2
 PyYAML~=6.0
