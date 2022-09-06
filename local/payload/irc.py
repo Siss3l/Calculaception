@@ -2,8 +2,6 @@
 This module provides methods to work with Windows 10 Calculator 64-bit.
 """
 
-from __future__ import print_function
-
 from dataclasses import dataclass
 from functools import partial
 from glob import glob
@@ -46,7 +44,7 @@ def checking() -> bool:
                     return True
                 if proc.status() == "stopped":
                     (*_,) = proc.terminate(), proc.wait()
-                    break  # This is not useful with "for-else".
+                    break  # Not useful with "for-else" case.
         except (AccessDenied, NoSuchProcess, ZombieProcess):
             pass
     return bool(pop(ex))
