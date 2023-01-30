@@ -11,9 +11,9 @@
 ## ⚖️ Disclaimer
 
 > **The code within this repository comes with no guarantee, the use of this code is your responsibility.
-Authors have NO responsibility and/or liability for how you choose to use any of the source code available here.
-By using any of the files available in this repository, you understand that you are AGREEING TO USE AT YOUR OWN RISK.
-Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes ONLY.**
+Author(s) have no responsibility/liability for how you choose to use any of the source code available here.
+By using any of the files available in this repository, you understand that you are agreeing to use at your own risk.
+Once again, all files available here are for education/research purposes only.**
 
 ## 🧩 Installation
 
@@ -23,7 +23,7 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 **Python 3** needs the following packages:
 
--   [Frida](https://github.com/frida/frida-python) (required)
+-   [Frida](https://github.com/frida/frida-python) (main package)
 -   [Loguru](https://github.com/Delgan/loguru)
 -   [Psutil](https://github.com/giampaolo/psutil)
 -   [PyYAML](https://github.com/yaml/pyyaml)
@@ -31,9 +31,10 @@ Once again, ALL files available here are for EDUCATION and/or RESEARCH purposes 
 
 ## 🚀 Usage
 
-Run one of the following commands in order to be able to start any **Calculator** in **Calculator**:
+Run one of the following commands in order to be able to start a **Calculator** process in **Calculator** by clicking on the **Send feedback** button:
 ```cmd
 python .\local\payload\irc.py
+
 python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
 
@@ -45,14 +46,14 @@ ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!A
 
 ## ⚙ Configuration
 
-You have to change the username **test** in the sandbox [configuration file](./local/config.wsb#L7) if you want to run it correctly on **Windows Sandbox** environment.
+If you want to use the default configuration, you have to change the username **test** by yours in the sandbox [configuration file](./local/config.wsb#L7) to run it correctly on **Windows Sandbox** environment.
 ```cmd
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
 
 ![Version](https://i.imgur.com/DjFwYZn.png)
 
-There are several alternatives to run a **Calculator** application:
+There are also several alternatives to run a **Calculator** application:
 -   [Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) with prior installation of **Calculator**
 -   A Virtual Machine ([QEMU](https://github.com/qemu/qemu), [VirtualBox](https://github.com/mirror/vbox), [VMware](https://github.com/vmware/open-vm-tools), etc.) can be used as a test environment, including [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) possibly inspected with [VirusTotal](https://github.com/VirusTotal/vt-cli)
 -   Usage of [Wine](https://github.com/wine-mirror/wine) allowing to launch **Windows** applications (without adding [HyperV](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v), [FlareVM](https://github.com/mandiant/flare-vm) or [HiddenVM](https://github.com/aforensics/HiddenVM))
