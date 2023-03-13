@@ -1,3 +1,4 @@
+# pylint: disable=line-too-long
 """
 This module provides methods to work with Windows 10 Calculator 64-bit.
 """
@@ -5,7 +6,8 @@ This module provides methods to work with Windows 10 Calculator 64-bit.
 from dataclasses import dataclass
 from functools import partial
 from glob import glob
-from locale import getdefaultlocale
+from json import loads
+from locale import getlocale
 from pathlib import Path
 from shutil import rmtree
 from subprocess import Popen
@@ -14,18 +16,10 @@ from tempfile import gettempdir
 from time import time
 from typing import Callable, Union
 
-from frida import get_local_device, kill, InvalidArgumentError, InvalidOperationError, \
-    NotSupportedError, ProcessNotFoundError, ProcessNotRespondingError, TransportError
+from frida import get_local_device, kill, InvalidArgumentError, InvalidOperationError, NotSupportedError, ProcessNotFoundError, ProcessNotRespondingError, TransportError
 from loguru import logger
 from psutil import process_iter, AccessDenied, NoSuchProcess, ZombieProcess
 from rich import print as show
-from yaml import safe_load
-
-calculator, calc = "Calculator.exe", "calc.exe"
-ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
-hook = (Path(__file__).parent / "hook.jsx").read_text()
-lang = safe_load((Path(__file__).parent / "i18n.yml").read_bytes())["languages"].get(
-    getdefaultlocale()[False].split("_")[0], {"btn": "Send feedback", "abt": "About"})
 
 
 def checking() -> bool:
@@ -38,16 +32,16 @@ def checking() -> bool:
     """
     for proc in process_iter(attrs=["name", "username"]):
         try:
-            if proc.name().casefold() in (calculator.casefold(), calc.casefold()):
-                if proc.status() == "running":  # Might not be visible sometimes.
+            if proc.name().casefold() in ("calculator.exe", "calc.exe"):  # Not on Windows 7
+                if proc.status() == "running":
                     show(f"[bold cyan]Process { {proc} } found[/bold cyan] :thumbs_up:")
                     return True
                 if proc.status() == "stopped":
                     (*_,) = proc.terminate(), proc.wait()
-                    break  # Not useful with "for-else" case.
+                    break
         except (AccessDenied, NoSuchProcess, ZombieProcess):
             pass
-    return bool(pop(ex))
+    return bool(pop(r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"))
 
 
 def clean():
@@ -60,11 +54,11 @@ def clean():
 
 def pop(value: Union[str, int]) -> bool:
     """
-    Try to run Calculator with a minute timeout.
+    Try to run Calculator, with a minute timeout.
     .. note::
-        There may be a false positive if notably OpenWith.exe (of returncode belonging to the N set)
-        is also running or that Explorer.exe is launched without succeeding in finding Calculator.
-    :rtype: nonlocal bool
+        There may be false positive possibly if *OpenWith.exe* (of returncode belonging to the N set)
+        is running or that *Explorer.exe* is launched without finding Calculator process.
+    :rtype: bool
     """
     try:
         with Popen(value) as _p:
@@ -86,20 +80,17 @@ class Hooking:
     Class that allows to interact with Calculator.
     """
 
-    def __init__(self, process: Union[str, int],
-                 _on_send_callback: Callable[[str, int, bytes], None] = None,
-                 _on_recv_callback: Callable[[str, int, bytes], None] = None):
+    def __init__(self, process: Union[str, int], _on_send_callback: Callable[[str, int, bytes], None] = None, _on_recv_callback: Callable[[str, int, bytes], None] = None):
+        lng = list(list(({k: v for k, v in loads((Path(__file__).parent / "i18n.json").read_bytes()).items() if (getlocale()[0].split("_")[0].casefold() or "en")
+                          in k.casefold() } or {"en": {"btn": "Send feedback", "abt": "About"}}).values())[0].values())
         self.local_device = get_local_device()
         self.process_id = self.local_device.get_process(process).pid
         self.session = self.local_device.attach(self.process_id)
-        self.script = self.session.create_script(hook, runtime="v8")
+        self.script = self.session.create_script((Path(__file__).parent / "hook.jsx").read_text(), runtime="v8")
         self.script.on("message", self._on_message)
         self.script.load()
-        show(f'[bold cyan]Please click on the \"'
-             f'[italic green]{lang["btn"]}[/italic green]\" button in '
-             f'the \"[italic bold green]{lang["abt"]}[/italic bold green]\" section.[/bold cyan]'
-             )
-        input("Press <Enter> key to close.\n")
+        show(f'[bold cyan]Please click on the \"[italic green]{lng[0]}[/italic green]\" button in the \"[italic bold green]{lng[1]}[/italic bold green]\" section.[/bold cyan]')
+        input("Please press the <Enter> keyboard key to close it all.\n")
         self.script.unload()
         self.session.detach()
         kill(self.process_id)
@@ -118,11 +109,13 @@ class Hooking:
 
 if __name__ == "__main__":
     logger.info("If libraries have not been imported it cannot be a routine supported here.")
-    if {"frida", "loguru", "psutil", "rich", "yaml"}.issubset(modules):
+    if {"frida", "loguru", "psutil", "rich"}.issubset(modules):
         if checking():
             try:
-                _ = partial(Hooking)(calculator)
-            except (InvalidArgumentError, InvalidOperationError, NotSupportedError,
-                    ProcessNotFoundError, ProcessNotRespondingError, TransportError) as e:
+                _ = partial(Hooking)("calculator.exe")
+            except ProcessNotFoundError:
+                _ = partial(Hooking)("calc.exe")
+            except (InvalidArgumentError, InvalidOperationError, NotSupportedError, ProcessNotRespondingError, TransportError) as e:
                 logger.exception(f"{type(e).__name__}: {e}")
+            finally:
                 clean()
