@@ -26,7 +26,6 @@ Once again, all files available here are for education/research purposes only.**
 -   [Frida](https://github.com/frida/frida-python) (main package)
 -   [Loguru](https://github.com/Delgan/loguru)
 -   [Psutil](https://github.com/giampaolo/psutil)
--   [PyYAML](https://github.com/yaml/pyyaml)
 -   [Rich](https://github.com/Textualize/rich)
 
 ## 🚀 Usage
@@ -39,9 +38,9 @@ python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
 
 There is a default relative path of `WindowsCalculator` editable.\
-See this [part](./local/payload/irc.py#L27) here:
+See this [part](./local/payload/irc.py#L44) here:
 ```python
-ex = r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
+r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
 ```
 
 ## ⚙ Configuration
