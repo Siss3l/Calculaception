@@ -1,0 +1,250 @@
+{
+  "af": {
+    "btn": "Stuur terugvoer",
+    "abt": "Inligting oor"
+  },
+  "am": {
+    "btn": "ግብረመልስ ላክ",
+    "abt": "ስለ"
+  },
+  "ar": {
+    "btn": "إرسال ملاحظات",
+    "abt": "حول"
+  },
+  "az": {
+    "btn": "Əks-əlaqə göndər",
+    "abt": "Haqqında"
+  },
+  "be": {
+    "btn": "Адправіць водгук",
+    "abt": "Інфармацыя"
+  },
+  "bg": {
+    "btn": "Обратна връзка",
+    "abt": "Относно"
+  },
+  "bn": {
+    "btn": "মতামত জানান",
+    "abt": "বিষয়ক"
+  },
+  "ca": {
+    "btn": "Envia comentaris",
+    "abt": "Sobre"
+  },
+  "cs": {
+    "btn": "Poslat zpětnou vazbu",
+    "abt": "O aplikaci"
+  },
+  "da": {
+    "btn": "Send feedback",
+    "abt": "Om"
+  },
+  "de": {
+    "btn": "Feedback senden",
+    "abt": "Info"
+  },
+  "el": {
+    "btn": "Αποστολή σχολίων",
+    "abt": "Πληροφορίες"
+  },
+  "en": {
+    "btn": "Send feedback",
+    "abt": "About"
+  },
+  "es": {
+    "btn": "Enviar comentarios",
+    "abt": "Acerca de"
+  },
+  "et": {
+    "btn": "Saada tagasisidet",
+    "abt": "Teave"
+  },
+  "eu": {
+    "btn": "Bidali oharrak",
+    "abt": "Honi buruz"
+  },
+  "fa": {
+    "btn": "ارسال بازخورد",
+    "abt": "درباره"
+  },
+  "fi": {
+    "btn": "Lähetä palautetta",
+    "abt": "Tietoja"
+  },
+  "fil_ph": {
+    "btn": "Magpadala ng feedback",
+    "abt": "Tungkol Dito"
+  },
+  "fr": {
+    "btn": "Envoyer des commentaires",
+    "abt": "À propos de"
+  },
+  "gl": {
+    "btn": "Enviar comentarios",
+    "abt": "Acerca de"
+  },
+  "ha_ng": {
+    "btn": "Aika martani",
+    "abt": "Game da"
+  },
+  "he": {
+    "btn": "שלח משוב",
+    "abt": "אודות"
+  },
+  "hi": {
+    "btn": "प्रतिक्रिया भेजें",
+    "abt": "के बारे में"
+  },
+  "hr": {
+    "btn": "Slanje povratnih informacija",
+    "abt": "O programu"
+  },
+  "hu": {
+    "btn": "Visszajelzés küldése",
+    "abt": "Névjegy"
+  },
+  "id": {
+    "btn": "Kirim tanggapan",
+    "abt": "Tentang"
+  },
+  "is": {
+    "btn": "Senda athugasemd",
+    "abt": "Um"
+  },
+  "it": {
+    "btn": "Invia feedback",
+    "abt": "Informazioni"
+  },
+  "ja": {
+    "btn": "フィードバックの送信",
+    "abt": "バージョン情報"
+  },
+  "kk": {
+    "btn": "Пікір жіберу",
+    "abt": "Бағдарлама туралы"
+  },
+  "km": {
+    "btn": "ផ្ញើមតិត្រឡប់",
+    "abt": "អំពី"
+  },
+  "kn": {
+    "btn": "ಪ್ರತಿಕ್ರಿಯೆ ಕಳುಹಿಸಿ",
+    "abt": "ಕುರಿತು"
+  },
+  "ko": {
+    "btn": "피드백 보내기",
+    "abt": "정보"
+  },
+  "lb": {
+    "btn": "Feedback schécken",
+    "abt": "Iwwer"
+  },
+  "lo": {
+    "btn": "ສົ່ງຄຳຕິຊົມ",
+    "abt": "ກ່ຽວກັບ"
+  },
+  "lt": {
+    "btn": "Siųsti atsiliepimą",
+    "abt": "Apie"
+  },
+  "lv": {
+    "btn": "Nosūtīt atsauksmes",
+    "abt": "Par"
+  },
+  "mk": {
+    "btn": "Испрати повратни информации",
+    "abt": "За"
+  },
+  "ml": {
+    "btn": "പ്രതികരണം അയയ്ക്കുക",
+    "abt": "കുറിച്ച്"
+  },
+  "ms": {
+    "btn": "Hantarkan maklum balas",
+    "abt": "Perihal"
+  },
+  "nb": {
+    "btn": "Send tilbakemelding",
+    "abt": "Om"
+  },
+  "nl": {
+    "btn": "Feedback verzenden",
+    "abt": "Info over"
+  },
+  "pl": {
+    "btn": "Prześlij opinię",
+    "abt": "Informacje"
+  },
+  "pt": {
+    "btn": "Enviar comentários",
+    "abt": "Acerca de"
+  },
+  "ro": {
+    "btn": "Trimiteți feedback",
+    "abt": "Despre"
+  },
+  "ru": {
+    "btn": "Отправить отзыв",
+    "abt": "О программе"
+  },
+  "sk": {
+    "btn": "Odoslať pripomienky",
+    "abt": "Informácie"
+  },
+  "sl": {
+    "btn": "Pošlji povratne informacije",
+    "abt": "Vizitka"
+  },
+  "sq": {
+    "btn": "Dërgo komente",
+    "abt": "Rreth"
+  },
+  "sr@latn": {
+    "btn": "Pošalji povratne informacije",
+    "abt": "Osnovni podaci o"
+  },
+  "sv": {
+    "btn": "Skicka feedback",
+    "abt": "Om"
+  },
+  "sw": {
+    "btn": "Tuma majibu",
+    "abt": "Kuhusu"
+  },
+  "ta": {
+    "btn": "பின்னூட்டம் அனுப்பு",
+    "abt": "இது பற்றி"
+  },
+  "te": {
+    "btn": "అభిప్రాయాన్ని పంపండి",
+    "abt": "గురించి"
+  },
+  "th": {
+    "btn": "ส่งคำติชม",
+    "abt": "เกี่ยวกับ"
+  },
+  "tr": {
+    "btn": "Geri bildirim gönder",
+    "abt": "Hakkında"
+  },
+  "uk": {
+    "btn": "Надіслати відгук",
+    "abt": "Відомості"
+  },
+  "uz": {
+    "btn": "Fikr-mulohaza yuborish",
+    "abt": "Haqida"
+  },
+  "vi": {
+    "btn": "Gửi phản hồi",
+    "abt": "Giới thiệu"
+  },
+  "zh": {
+    "btn": "发送反馈",
+    "abt": "关于"
+  },
+  "zh_cn": {
+    "btn": "傳送意見反映",
+    "abt": "關於"
+  }
+}
