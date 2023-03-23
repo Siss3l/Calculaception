@@ -8,7 +8,6 @@ cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilit
 cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilityAccount\Desktop\local\python3\frida-15.1.17.tar.gz"
 cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilityAccount\Desktop\local\python3\loguru-0.6.0-py3-none-any.whl"
 cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilityAccount\Desktop\local\python3\psutil-5.9.0-cp310-cp310-win_amd64.whl"
-cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilityAccount\Desktop\local\python3\PyYAML-6.0-cp310-cp310-win_amd64.whl"
 cmd /c ""C:\Program Files\Python310\Scripts\pip.exe" install C:\Users\WDAGUtilityAccount\Desktop\local\python3\rich-12.0.0-py3-none-any.whl"
 rem powershell C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2019\install.ps1
 powershell C:\Users\WDAGUtilityAccount\Desktop\local\Windows_Calculator_2020\install.ps1
