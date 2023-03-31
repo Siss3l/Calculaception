@@ -30,7 +30,7 @@ Once again, all files available here are for education/research purposes only.**
 
 ## 🚀 Usage
 
-Run one of the following commands in order to be able to start a **Calculator** process in **Calculator** by clicking on the **Send feedback** button:
+Run one of the following commands in order to be able to start a **Calculator** process in **Calculator** by clicking on their **Send feedback** button:
 ```cmd
 python .\local\payload\irc.py
 
@@ -50,7 +50,10 @@ If you want to use the default configuration, you have to change the username **
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
 
-![Version](https://i.imgur.com/DjFwYZn.png)
+Functional tested versions on **Calculator** are:
+
+-   `10.2103.8.0`
+-   `10.1804.11545.0`
 
 There are also several alternatives to run a **Calculator** application:
 -   [Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) with prior installation of **Calculator**
