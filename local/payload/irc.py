@@ -1,4 +1,4 @@
-# pylint: disable=line-too-long
+# pylint: disable=line-too-long, invalid-name
 """
 This module provides methods to work with Windows 10 Calculator 64-bit.
 """
@@ -11,10 +11,10 @@ from locale import getlocale
 from pathlib import Path
 from shutil import rmtree
 from subprocess import Popen
-from sys import exit as close, modules
+from sys import exit as down, modules
 from tempfile import gettempdir
 from time import time
-from typing import Callable, Union
+from typing import Callable, NoReturn, Union
 
 from frida import get_local_device, kill, InvalidArgumentError, InvalidOperationError, NotSupportedError, ProcessNotFoundError, ProcessNotRespondingError, TransportError
 from loguru import logger
@@ -24,7 +24,7 @@ from rich import print as show
 
 def checking() -> bool:
     """
-    Checks if Calculator process exists and runs in foreground.
+    Checking if Calculator process exists and runs in foreground.
     .. note::
         A new instance of Explorer.exe or ApplicationFrameHost.exe can be started
         in the background before a reboot and can potentially provoke deadlocks.
@@ -32,7 +32,7 @@ def checking() -> bool:
     """
     for proc in process_iter(attrs=["name", "username"]):
         try:
-            if proc.name().casefold() in ("calculator.exe", "calc.exe"):  # Not on Windows 7
+            if proc.name().casefold() in ("calculator.exe", "calc.exe"):
                 if proc.status() == "running":
                     show(f"[bold cyan]Process { {proc} } found[/bold cyan] :thumbs_up:")
                     return True
@@ -44,30 +44,22 @@ def checking() -> bool:
     return bool(pop(r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"))
 
 
-def clean():
-    """
-    Removes Frida's temporary folders (except if used) who needs several
-    Dynamic Link Libraries to work that can take up some space.
-    """
-    _ = [rmtree(f, ignore_errors=True, onerror=None) for f in glob(f"{gettempdir()}/frida-*")]
-
-
 def pop(value: Union[str, int]) -> bool:
     """
-    Try to run Calculator, with a minute timeout.
+    Try to run Calculator with a minute timeout.
     .. note::
         There may be false positive possibly if *OpenWith.exe* (of returncode belonging to the N set)
         is running or that *Explorer.exe* is launched without finding Calculator process.
     :rtype: bool
     """
     try:
-        with Popen(value) as _p:
-            _m = time() + 60
-            poll = _p.poll()
+        with Popen(value) as p:
+            m = time() + 60
+            poll = p.poll()
             while poll is None:
-                poll = _p.poll()
-                if time() > _m:
-                    (*_,) = _p.terminate(), _p.wait()
+                poll = p.poll()
+                if time() > m:
+                    (*_,) = p.terminate(), p.wait()
                     return False
     except FileNotFoundError:
         return False
@@ -77,7 +69,7 @@ def pop(value: Union[str, int]) -> bool:
 @dataclass
 class Hooking:
     """
-    Class that allows to interact with Calculator.
+    Class that allows to interact with Calculator process with Frida.
     """
 
     def __init__(self, process: Union[str, int], _on_send_callback: Callable[[str, int, bytes], None] = None, _on_recv_callback: Callable[[str, int, bytes], None] = None):
@@ -90,21 +82,21 @@ class Hooking:
         self.script.on("message", self._on_message)
         self.script.load()
         show(f'[bold cyan]Please click on the \"[italic green]{lng[0]}[/italic green]\" button in the \"[italic bold green]{lng[1]}[/italic bold green]\" section.[/bold cyan]')
-        input("Please press the <Enter> keyboard key to close it all.\n")
+        input("Please press the <Enter> keyboard key to quit.\n")
         self.script.unload()
         self.session.detach()
         kill(self.process_id)
-        clean()
-        close()
+        _ = [rmtree(f, ignore_errors=1, onerror=None) for f in glob(f"{gettempdir()}/frida-*")]
+        down()
 
     @staticmethod
-    def _on_message(message: Union[dict, str], data: Union[dict, str]):
+    def _on_message(message: Union[dict, str], data: Union[dict, str]) -> NoReturn:
         try:
             if data is not None:
                 show(f"[bold red]{data}[/bold red]")
             show(f"[bold magenta]{message['payload']}[/bold magenta]")
         except ImportError as error:
-            logger.exception(f"{type(error).__name__}: {error}")
+            logger.exception(f"{type(error).__name__}: {error}.")
 
 
 if __name__ == "__main__":
@@ -114,8 +106,15 @@ if __name__ == "__main__":
             try:
                 _ = partial(Hooking)("calculator.exe")
             except ProcessNotFoundError:
-                _ = partial(Hooking)("calc.exe")
-            except (InvalidArgumentError, InvalidOperationError, NotSupportedError, ProcessNotRespondingError, TransportError) as e:
-                logger.exception(f"{type(e).__name__}: {e}")
+                try:
+                    _ = partial(Hooking)("calculator.exe")
+                except ProcessNotFoundError:
+                    try:
+                        _ = partial(Hooking)("calc.exe")
+                    except ProcessNotFoundError:
+                        _ = partial(Hooking)("calculator.exe")
+            except (InvalidArgumentError, InvalidOperationError, NotSupportedError, ProcessNotFoundError, ProcessNotRespondingError, TransportError) as e:
+                logger.exception(f"{type(e).__name__}: {e}.")
             finally:
-                clean()
+                _ = [rmtree(f, ignore_errors=1, onerror=None) for f in glob(f"{gettempdir()}/frida-*")]
+                down()
