@@ -21,19 +21,20 @@ Once again, all files available here are for education/research purposes only.**
 
 ## ✨ Prerequisite
 
-**Python 3** needs the following packages:
+**Python 3** needs the following (integrity checked) packages:
 
--   [Frida](https://github.com/frida/frida-python) (main package)
+-   [Frida](https://github.com/frida/frida-python) (main module)
 -   [Loguru](https://github.com/Delgan/loguru)
 -   [Psutil](https://github.com/giampaolo/psutil)
 -   [Rich](https://github.com/Textualize/rich)
 
 ## 🚀 Usage
 
-Run one of the following commands in order to be able to start a **Calculator** process in **Calculator** by clicking on their **Send feedback** button:
+Run one of the following commands you prefer in order to be able to start a **Calculator** process in **Calculator**\
+by clicking on their `Send feedback` button:
 ```cmd
 python .\local\payload\irc.py
-
+cmd
 python.exe C:\Users\WDAGUtilityAccount\Desktop\local\payload\irc.py
 ```
 
@@ -45,7 +46,7 @@ r"explorer.exe shell:AppsFolder\Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
 
 ## ⚙ Configuration
 
-If you want to use the default configuration, you have to change the username **test** by yours in the sandbox [configuration file](./local/config.wsb#L7) to run it correctly on **Windows Sandbox** environment.
+If we want to use the `configuration` file, we have to change the username `test` by ours (as in `%username%`) in the sandbox [configuration](./local/config.wsb#L7) to run it correctly on **Windows Sandbox** environment.
 ```cmd
 <HostFolder>C:\Users\test\Desktop\local</HostFolder>
 ```
@@ -56,6 +57,7 @@ Functional tested versions on **Calculator** are:
 -   `10.1804.11545.0`
 
 There are also several alternatives to run a **Calculator** application:
+
 -   [Windows Sandbox](https://github.com/microsoft/Windows-Sandbox-Utilities) with prior installation of **Calculator**
 -   A Virtual Machine ([QEMU](https://github.com/qemu/qemu), [VirtualBox](https://github.com/mirror/vbox), [VMware](https://github.com/vmware/open-vm-tools), etc.) can be used as a test environment, including [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) possibly inspected with [VirusTotal](https://github.com/VirusTotal/vt-cli)
 -   Usage of [Wine](https://github.com/wine-mirror/wine) allowing to launch **Windows** applications (without adding [HyperV](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v), [FlareVM](https://github.com/mandiant/flare-vm) or [HiddenVM](https://github.com/aforensics/HiddenVM))
