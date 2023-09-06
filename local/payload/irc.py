@@ -24,7 +24,7 @@ from rich import print as show
 
 def checking() -> bool:
     """
-    Checking if Calculator process exists and runs in foreground.
+    Checking if Calculator/CalculatorApp process exists and runs in foreground.
     .. note::
         A new instance of Explorer.exe or ApplicationFrameHost.exe can be started
         in the background before a reboot and can potentially provoke deadlocks.
@@ -32,7 +32,7 @@ def checking() -> bool:
     """
     for proc in process_iter(attrs=["name", "username"]):
         try:
-            if proc.name().casefold() in ("calculator.exe", "calc.exe"):
+            if proc.name().casefold() in ("calculator.exe", "calculatorapp.exe", "calc.exe"):
                 if proc.status() == "running":
                     show(f"[bold cyan]Process { {proc} } found[/bold cyan] :thumbs_up:")
                     return True
@@ -107,7 +107,7 @@ if __name__ == "__main__":
                 _ = partial(Hooking)("calculator.exe")
             except ProcessNotFoundError:
                 try:
-                    _ = partial(Hooking)("calculator.exe")
+                    _ = partial(Hooking)("calculatorapp.exe")
                 except ProcessNotFoundError:
                     try:
                         _ = partial(Hooking)("calc.exe")
