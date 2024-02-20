@@ -1,4 +1,4 @@
-frida~=16.1.11
+frida~=16.2.1
 loguru~=0.7.2
 psutil~=5.9.5
 rich~=13.7.0
